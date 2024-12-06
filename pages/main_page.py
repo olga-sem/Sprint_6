@@ -3,12 +3,12 @@ from pages.base_page import BasePage
 import allure
 
 
-@allure.title('Методы для проверки вопросов-ответов')
 class MainPage(BasePage):
 
     @allure.step('Клик на вопрос')
     def click_the_question(self, num):
         locator_question_formated = self.format_locators(MainPageLocators.QUESTION_BUTTON, num)
+        self.click_the_element(MainPageLocators.COOKIES_BUTTON)
         self.scroll_to_element(MainPageLocators.THE_LAST_QUESTION)
         self.click_the_element(locator_question_formated)
 

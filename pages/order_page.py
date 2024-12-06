@@ -1,13 +1,14 @@
+from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 import allure
 
 
-@allure.title('Методы для создания заказа')
 class OrderPage(BasePage):
 
     @allure.step('Оформление заказа')
     def set_the_order(self, name, last_name, address, metro_station, phone, date, duration, color):
+        self.click_the_element(MainPageLocators.COOKIES_BUTTON)
         self.add_text_to_element(OrderPageLocators.NAME_FIELD, name)
         self.add_text_to_element(OrderPageLocators.LAST_NAME_FIELD, last_name)
         self.add_text_to_element(OrderPageLocators.ADDRESS_FIELD, address)

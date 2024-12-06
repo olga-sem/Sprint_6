@@ -1,9 +1,9 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
+from locators.main_page_locators import MainPageLocators
 
 
-@allure.title('Базовые методы')
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -40,3 +40,4 @@ class BasePage:
     @allure.step('Переход на другую страницу')
     def switch_to_window(self):
         self.driver.switch_to.window(self.driver.window_handles[-1])
+
